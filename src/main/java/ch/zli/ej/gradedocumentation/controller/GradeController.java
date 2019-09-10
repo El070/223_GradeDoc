@@ -23,7 +23,7 @@ public class GradeController {
         if (bindingResult.hasErrors()) {
             System.out.println("Error");
         } else {
-            user.toString();
+            System.out.println("User[ firstname = " + user.getFirstname() + ", lastname = " + user.getLastname() + ", email = " + user.getEmail() + "]");
         }
         return "redirect:/login";
     }
