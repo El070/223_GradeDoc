@@ -50,4 +50,9 @@ public class User {
     public void setEmail(String email) {
         email_ = email;
     }
+
+    @Override
+    public String toString() {
+        return "User[ firstname = " + firstname_ + ", lastname = " + lastname_ + ", email = " + email_ + "]";
+    }
 }
