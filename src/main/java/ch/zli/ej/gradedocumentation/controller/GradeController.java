@@ -19,12 +19,30 @@ public class GradeController {
     }
 
     @PostMapping("/login")
-    public String checkPersonInfo(@Valid User user, BindingResult bindingResult) {
+    public String checkLoginInfo(@Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             System.out.println("Error");
+            return "login";
         } else {
             System.out.println("User[ firstname = " + user.getFirstname() + ", lastname = " + user.getLastname() + ", email = " + user.getEmail() + "]");
         }
         return "redirect:/login";
+    }
+
+    @GetMapping("/register")
+    public String showRegister(Model model) {
+        model.addAttribute("user", new User());
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String checkRegisterInfo(@Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            System.out.println("Error");
+            return "register";
+        } else {
+            System.out.println("User[ firstname = " + user.getFirstname() + ", lastname = " + user.getLastname() + ", email = " + user.getEmail() + "]");
+        }
+        return "redirect:/register";
     }
 }
