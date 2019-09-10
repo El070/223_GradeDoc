@@ -1,13 +1,22 @@
 package ch.zli.ej.gradedocumentation.dataobjects;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class User {
 
     private long id_;
 
+    @NotEmpty(message = "Firstname cannot be empty")
+    @Size(min = 2, max = 10, message = "The max length allowed for the firstname is 10")
     private String firstname_;
 
+    @NotEmpty(message = "Lastname cannot be empty")
+    @Size(min = 2, max = 10, message = "The max length allowed for the lastname is 10")
     private String lastname_;
 
+    @Email(message = "Email isn't valid")
     private String email_;
 
     public long getId() {
